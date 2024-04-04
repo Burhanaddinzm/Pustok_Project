@@ -1,9 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Create Category";
+    ViewData["Title"] = "Update Category";
 }
-@model CategoryVM
+@model Category
 
-<form asp-controller="category" asp-action="create" asp-area="admin" method="post">
+<form asp-controller="category" asp-action="edit" asp-area="admin" method="post">
+    <input asp-for="Id" style="display:none" />
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input asp-for="Name" class="form-control" id="name">
@@ -12,7 +13,14 @@
     <div class="mb-3">
         <label for="cat" class="form-label">Parent Category</label>
         <select class="form-control" asp-for="ParentId" asp-items="@(new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Name)))">
-            <option value="" selected>No Parent</option>
+            @if (Model.ParentId != null)
+            {
+                <option value="">No Parent</option>
+            }
+            else
+            {
+                <option value="" selected>No Parent</option>
+            }
         </select>
         <span asp-validation-for="ParentId"></span>
     </div>
