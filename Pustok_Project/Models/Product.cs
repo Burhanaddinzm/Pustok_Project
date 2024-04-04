@@ -1,10 +1,14 @@
-﻿using Pustok_Project.Models.BaseModels;
+﻿using Pustok_Project.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pustok_Project.Models
 {
-    public class Product : BaseModel
+    public class Product
     {
+        public int Id { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public string Name { get; set; } = null!;
         public string? Description { get; set; }
         public decimal ExTaxPrice { get; set; }
@@ -12,6 +16,7 @@ namespace Pustok_Project.Models
         public decimal Price { get; set; }
         public bool IsInStock { get; set; }
         public double Rating { get; set; }
+        public BookType BookType { get; set; }
         [NotMapped]
         public IFormFile MainImage { get; set; } = null!;
         [NotMapped]

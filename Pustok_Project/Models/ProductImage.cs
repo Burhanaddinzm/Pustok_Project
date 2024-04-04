@@ -1,10 +1,13 @@
-﻿using Pustok_Project.Models.BaseModels;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pustok_Project.Models
 {
-    public class ProductImage : BaseModel
+    public class ProductImage 
     {
+        public int Id { get; set; }
+        public bool IsDeleted { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
         public string Url { get; set; } = null!;
         [NotMapped]
         public IFormFile File { get; set; } = null!;
