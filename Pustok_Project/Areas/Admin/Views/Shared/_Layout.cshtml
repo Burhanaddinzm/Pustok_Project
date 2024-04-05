@@ -69,6 +69,19 @@
                         <a class="collapse-item" asp-controller="category" asp-action="create" asp-area="admin">Category Create</a>
                     </div>
                 </div>
+            </li>     
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBrand"
+                   aria-expanded="true" aria-controls="collapseBrand">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Brands</span>
+                </a>
+                <div id="collapseBrand" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" asp-controller="brand" asp-action="index" asp-area="admin">Brand List</a>
+                        <a class="collapse-item" asp-controller="brand" asp-action="create" asp-area="admin">Brand Create</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->

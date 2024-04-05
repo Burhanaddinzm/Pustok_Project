@@ -19,7 +19,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<Category> categories = await _context.Categories
+            List<Category>? categories = await _context.Categories
                 .Include(x => x.Products).Include(x => x.Parent)
                 .AsNoTracking().ToListAsync();
 
@@ -54,7 +54,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
         {
             ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
 
-            var category = await _context.Categories.Include(x => x.Parent)
+            Category? category = await _context.Categories.Include(x => x.Parent)
                            .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             if (category == null) return NotFound();
@@ -68,7 +68,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             if (!ModelState.IsValid) return View(category);
 
-            var existingCategory = await _context.Categories.FindAsync(category.Id);
+            Category? existingCategory = await _context.Categories.FindAsync(category.Id);
 
             if (existingCategory == null) return NotFound();
 
@@ -106,7 +106,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             if (id == null || id == 0) return BadRequest();
 
-            Category? category = _context.Categories.Find(id);
+            Category? category = await _context.Categories.FindAsync(id);
 
             if (category == null) return BadRequest();
 

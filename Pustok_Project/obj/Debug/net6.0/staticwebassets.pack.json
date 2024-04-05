@@ -7601,6 +7601,10 @@
       "PackagePath": "staticwebassets\\client\\assets\\image\\bg-images\\promo-banner-with-text.jpg"
     },
     {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\brands\\5568ce7c-5c00-4aa6-9833-f40d5a1394ec_CPU.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\brands\\5568ce7c-5c00-4aa6-9833-f40d5a1394ec_CPU.PNG"
+    },
+    {
       "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\favicon.ico",
       "PackagePath": "staticwebassets\\client\\assets\\image\\favicon.ico"
     },

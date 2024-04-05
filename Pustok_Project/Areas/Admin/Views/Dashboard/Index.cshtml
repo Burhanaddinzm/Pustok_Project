@@ -1,3 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
 }
+@model DashboardVM
+
+<h1 style="margin:4px 0; display:flex; align-items:center; justify-content:center;">Categories</h1>
+<hr />
+<partial name="_CategoryPartial" model="@Model.Categories" />
+
+<h1 style="margin:4px 0; display:flex; align-items:center; justify-content:center;">Brands</h1>
+<hr />
+<partial name="_BrandPartial" model="@Model.Brands" />
