@@ -4,6 +4,8 @@ using Pustok_Project.Areas.Admin.ViewModels;
 using Pustok_Project.Data.Contexts;
 using Pustok_Project.Extensions;
 using Pustok_Project.Models;
+using System;
+using System.Drawing;
 
 namespace Pustok_Project.Areas.Admin.Controllers
 {
@@ -60,6 +62,81 @@ namespace Pustok_Project.Areas.Admin.Controllers
             };
 
             await _context.Brands.AddAsync(brand);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("index");
+        }
+
+        public async Task<IActionResult> Edit(int? id)
+        {
+
+            Brand? brand = await _context.Brands.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (brand == null) return NotFound();
+
+            return View(brand);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(Brand brand)
+        {
+            if (!ModelState.IsValid) return View(brand);
+
+            Brand? existingBrand = await _context.Brands.FindAsync(brand.Id);
+
+            if (existingBrand == null) return NotFound();
+
+            if (!brand.Image.CheckFileType("image"))
+            {
+                ModelState.AddModelError("", "Invalid file type!");
+                return View(brand);
+            }
+            if (!brand.Image.CheckFileSize(2))
+            {
+                ModelState.AddModelError("", "File size too big!");
+                return View(brand);
+            }
+            if (await _context.Brands.Where(x => x.Id != brand.Id).AnyAsync(x => x.Name == brand.Name))
+            {
+                ModelState.AddModelError("Name", "This category already exists!");
+                return View(brand);
+            }
+
+            string uniqueFileName = await brand.Image.SaveFileAsync(_env.WebRootPath, "client", "assets", "image", "brands");
+
+            brand.Image.DeleteFile(_env.WebRootPath, "client", "assets", "image", "brands", brand.ImageUrl);
+
+            existingBrand.Name = brand.Name;
+            existingBrand.ImageUrl = uniqueFileName;
+
+
+            _context.Brands.Update(existingBrand);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("index");
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id == 0) return NotFound();
+
+            Brand? brand = await _context.Brands.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+
+            if (brand == null) return NotFound();
+
+            return View(brand);
+        }
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeletePOST(int? id)
+        {
+            if (id == null || id == 0) return BadRequest();
+
+            Brand? brand = await _context.Brands.FindAsync(id);
+
+            if (brand == null) return BadRequest();
+
+            brand.IsDeleted = true;
+
+            _context.Brands.Update(brand);
             await _context.SaveChangesAsync();
 
             return RedirectToAction("index");

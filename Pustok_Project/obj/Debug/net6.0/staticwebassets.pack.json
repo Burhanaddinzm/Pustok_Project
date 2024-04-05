@@ -7601,8 +7601,20 @@
       "PackagePath": "staticwebassets\\client\\assets\\image\\bg-images\\promo-banner-with-text.jpg"
     },
     {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\brands\\3e28c57e-4224-4ffb-9c1e-01892b6f7cf1_CPU.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\brands\\3e28c57e-4224-4ffb-9c1e-01892b6f7cf1_CPU.PNG"
+    },
+    {
       "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\brands\\5568ce7c-5c00-4aa6-9833-f40d5a1394ec_CPU.PNG",
       "PackagePath": "staticwebassets\\client\\assets\\image\\brands\\5568ce7c-5c00-4aa6-9833-f40d5a1394ec_CPU.PNG"
+    },
+    {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\brands\\5acf0b6f-5054-4640-8b76-4ef17aa8deee_CPU.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\brands\\5acf0b6f-5054-4640-8b76-4ef17aa8deee_CPU.PNG"
+    },
+    {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\brands\\b4bc419e-6cf9-4411-8588-4c84e9f8e188_sadasd.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\brands\\b4bc419e-6cf9-4411-8588-4c84e9f8e188_sadasd.PNG"
     },
     {
       "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\favicon.ico",
