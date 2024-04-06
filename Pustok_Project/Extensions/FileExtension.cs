@@ -14,7 +14,6 @@
             return uniqueFileName;
         }
 
-
         public static bool CheckFileType(this IFormFile file, string fileType)
         {
             if (file.ContentType.Contains(fileType))
@@ -40,6 +39,33 @@
             if (File.Exists(path))
             {
                 File.Delete(path);
+            }
+        }
+
+        public static FileValidationResult ValidateFile(this IFormFile file)
+        {
+            if (!file.CheckFileSize(2))
+            {
+                return new FileValidationResult(false, "File size can't exceed 2 MB!");
+            }
+
+            if (!file.CheckFileType("image"))
+            {
+                return new FileValidationResult(false, "File type is invalid!");
+            }
+
+            return new FileValidationResult(true);
+        }
+
+        public class FileValidationResult
+        {
+            public bool IsValid { get; }
+            public string ErrorMessage { get; }
+
+            public FileValidationResult(bool isValid, string errorMessage = "")
+            {
+                IsValid = isValid;
+                ErrorMessage = errorMessage;
             }
         }
     }

@@ -28,12 +28,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        @foreach (var product in Model)
-                                        {
+                                    @foreach (var product in Model)
+                                    {
+                                        <tr>
                                             <td>@product.Name</td>
                                             <td>@product.Description</td>
-                                            <td><img width="100" src="~/client/assets/imgs/products/@product.ProductImages.FirstOrDefault(x => x.IsMain).Url" /></td>
+                                            <td><img width="100" src="~/client/assets/image/productss/@product.ProductImages.FirstOrDefault(x => x.IsMain).Url" /></td>
                                             <td>@product.ExTaxPrice</td>
                                             <td>@product.DiscountPrice</td>
                                             <td>@product.Price</td>
@@ -47,8 +47,8 @@
                                                 <a class="btn btn-primary" asp-route-id="@product.Id" asp-controller="Product" asp-action="Edit">Edit</a>
                                                 <a class="btn btn-danger mt-2" asp-route-id="@product.Id" asp-controller="Product" asp-action="Delete">Delete</a>
                                             </td>
-                                        }
-                                    </tr>
+                                        </tr>
+                                    }
                                 </tbody>
                             </table>
                         </div>

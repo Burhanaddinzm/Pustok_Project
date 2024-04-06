@@ -7821,6 +7821,14 @@
       "PackagePath": "staticwebassets\\client\\assets\\image\\products\\product-details-5.jpg"
     },
     {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\59a925a7-4166-4d39-825e-2243719bf7ff_CPU.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\59a925a7-4166-4d39-825e-2243719bf7ff_CPU.PNG"
+    },
+    {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\709c3d0a-5dfd-4017-814f-9d11db0e1aec_GPU.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\709c3d0a-5dfd-4017-814f-9d11db0e1aec_GPU.PNG"
+    },
+    {
       "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\js\\ajax-mail.js",
       "PackagePath": "staticwebassets\\client\\assets\\js\\ajax-mail.js"
     },

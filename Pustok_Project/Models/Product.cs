@@ -17,12 +17,6 @@ namespace Pustok_Project.Models
         public bool IsInStock { get; set; }
         public double Rating { get; set; }
         public BookType BookType { get; set; }
-        [NotMapped]
-        public IFormFile MainImage { get; set; } = null!;
-        [NotMapped]
-        public IFormFile HoverImage { get; set; } = null!;
-        [NotMapped]
-        public List<IFormFile>? AdditionalImages { get; set; }
         public List<ProductImage>? ProductImages { get; set; }
         public int BrandId { get; set; }
         public Brand Brand { get; set; } = null!;

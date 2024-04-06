@@ -11,6 +11,7 @@
     <Folder Include="ViewComponents\" />
     <Folder Include="Views\Shared\Components\Category\" />
     <Folder Include="wwwroot\client\assets\image\brands\" />
+    <Folder Include="wwwroot\client\assets\image\productss\" />
   </ItemGroup>
 
   <ItemGroup>
