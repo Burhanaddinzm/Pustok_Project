@@ -84,6 +84,61 @@ namespace Pustok_Project.Areas.Admin.Controllers
             return RedirectToAction("index");
         }
 
+        public async Task<IActionResult> Edit(int? id)
+        {
+            ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
+            ViewBag.Brands = await _context.Brands.AsNoTracking().ToListAsync();
+
+            if (id == null || id == 0) return NotFound();
+
+            Product? product = await _context.Products.AsNoTracking().Include(x => x.ProductImages).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (product == null) return NotFound();
+
+            return View(product);
+        }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int? id, Product product)
+        {
+            ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
+            ViewBag.Brands = await _context.Brands.AsNoTracking().ToListAsync();
+
+            if (!ModelState.IsValid) return View(product);
+
+            if (id != product.Id) return BadRequest();
+
+            return RedirectToAction("index");
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null || id == 0) return NotFound();
+
+            Product? product = await _context.Products
+                .Include(x => x.ProductImages).Include(x => x.Brand).Include(x => x.Category)
+                .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (product == null) return NotFound();
+
+            return View(product);
+        }
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeletePOST(int? id)
+        {
+            if (id == null || id == 0) return BadRequest();
+
+            Product? product = await _context.Products.FindAsync(id);
+
+            if (product == null) return BadRequest();
+
+            product.IsDeleted = true;
+
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("index");
+        }
+
         async Task<bool> ValidateAndCreateImageAsync(List<IFormFile> files, List<ProductImage> productImages)
         {
             foreach (var file in files)
@@ -98,7 +153,6 @@ namespace Pustok_Project.Areas.Admin.Controllers
             }
             return true;
         }
-
         async Task<ProductImage> CreateProductImageAsync(IFormFile file, bool isMain, bool isHover)
         {
             string uniqueFileName = await file.SaveFileAsync(_env.WebRootPath, "client", "assets", "image", "productss");

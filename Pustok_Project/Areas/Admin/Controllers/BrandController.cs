@@ -67,7 +67,6 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-
             Brand? brand = await _context.Brands.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             if (brand == null) return NotFound();
@@ -85,12 +84,12 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             if (!brand.Image.CheckFileType("image"))
             {
-                ModelState.AddModelError("", "Invalid file type!");
+                ModelState.AddModelError("Image", "Invalid file type!");
                 return View(brand);
             }
             if (!brand.Image.CheckFileSize(2))
             {
-                ModelState.AddModelError("", "File size too big!");
+                ModelState.AddModelError("Image", "File size too big!");
                 return View(brand);
             }
             if (await _context.Brands.Where(x => x.Id != brand.Id).AnyAsync(x => x.Name == brand.Name))

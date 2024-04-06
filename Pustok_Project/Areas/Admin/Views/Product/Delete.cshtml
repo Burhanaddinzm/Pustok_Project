@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Delete Product";
+}
+@model Product
+
+<form asp-controller="product" asp-action="delete" asp-area="admin" method="post" enctype="multipart/form-data">
+    <input style="display:none;" asp-for="Id" />
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input disabled asp-for="Name" class="form-control" id="name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <input disabled asp-for="Description" class="form-control" id="desc">
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exp" class="form-label">ExTax Price</label>
+        <input disabled asp-for="ExTaxPrice" class="form-control" id="exp">
+        <span class="text-danger" asp-validation-for="ExTaxPrice"></span>
+    </div>
+    <div class="mb-3">
+        <label for="dp" class="form-label">Discount Price</label>
+        <input disabled asp-for="DiscountPrice" class="form-control" id="dp">
+        <span class="text-danger" asp-validation-for="DiscountPrice"></span>
+    </div>
+    <div class="mb-3">
+        <label for="p" class="form-label">Price</label>
+        <input disabled asp-for="Price" class="form-control" id="p">
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3">
+        <label for="rt" class="form-label">Rating</label>
+        <input disabled asp-for="Rating" class="form-control" id="rt">
+        <span class="text-danger" asp-validation-for="Rating"></span>
+    </div>
+    <div class="mb-3">
+        <label for="cat" class="form-label">Category</label>
+        <select disabled id="cat" class="form-control" asp-for="CategoryId">
+            <option value="@Model.CategoryId" selected>@Model.Category.Name</option>
+        </select>
+        <span asp-validation-for="CategoryId"></span>
+    </div>
+    <div class="mb-3">
+        <label for="brnd" class="form-label">Brand</label>
+        <select disabled id="brnd" class="form-control" asp-for="BrandId">
+            <option value="@Model.BrandId" selected>@Model.Brand.Name</option>
+        </select>
+        <span asp-validation-for="BrandId"></span>
+    </div>
+    <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <select disabled id="type" class="form-control" asp-for="BookType">
+            <option value="@Model.BookType" selected>@Model.BookType</option>
+        </select>
+        <span asp-validation-for="BookType"></span>
+    </div>
+    <div class="mb-3">
+        <p>Main Image</p>
+        <img style="width:100px; height:100px; object-fit:cover;" src="~/client/assets/image/productss/@Model.ProductImages.FirstOrDefault(x=> x.IsMain).Url" />
+    </div>
+    <div class="mb-3">
+        <p>Hover Image</p>
+        <img style="width:100px; height:100px; object-fit:cover;" src="~/client/assets/image/productss/@Model.ProductImages.FirstOrDefault(x=> x.IsHover).Url" />
+    </div>
+    <div class="mb-3">
+        <p>Additional Images</p>
+        @foreach (var image in Model.ProductImages.Where(x => !x.IsMain && !x.IsHover))
+        {
+            <img style="width:100px; height:100px; object-fit:cover;" src="~/client/assets/image/productss/@image.Url" />
+        }
+    </div>
+    <div class="mb-3" style="display:flex;align-items:center;">
+        <label for="bit" class="form-label">In Stock?</label>
+        <input disabled asp-for="IsInStock" class="mx-2" style="width:20px;height:20px" id="bit">
+        <span class="text-danger" asp-validation-for="IsInStock"></span>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-action="index" asp-controller="product" asp-area="admin" class="btn btn-secondary mx-2">Back to list</a>
+</form>
