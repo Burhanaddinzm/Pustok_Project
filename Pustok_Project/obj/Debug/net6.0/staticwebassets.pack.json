@@ -7821,12 +7821,32 @@
       "PackagePath": "staticwebassets\\client\\assets\\image\\products\\product-details-5.jpg"
     },
     {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\05335409-5c42-4e13-a328-fe84c2722af5_21312312.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\05335409-5c42-4e13-a328-fe84c2722af5_21312312.PNG"
+    },
+    {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\213ebf77-811f-4a85-a4f6-cef962c28457_sadasd.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\213ebf77-811f-4a85-a4f6-cef962c28457_sadasd.PNG"
+    },
+    {
       "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\59a925a7-4166-4d39-825e-2243719bf7ff_CPU.PNG",
       "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\59a925a7-4166-4d39-825e-2243719bf7ff_CPU.PNG"
     },
     {
       "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\709c3d0a-5dfd-4017-814f-9d11db0e1aec_GPU.PNG",
       "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\709c3d0a-5dfd-4017-814f-9d11db0e1aec_GPU.PNG"
+    },
+    {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\c367218a-bb72-4936-a299-a07412b3ab47_sadasd.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\c367218a-bb72-4936-a299-a07412b3ab47_sadasd.PNG"
+    },
+    {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\e479e287-b5af-4673-8d5c-c61f5ab85ed1_GPU.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\e479e287-b5af-4673-8d5c-c61f5ab85ed1_GPU.PNG"
+    },
+    {
+      "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\ee371c91-41b2-49ed-81a9-dc36f363aa0e_CPU.PNG",
+      "PackagePath": "staticwebassets\\client\\assets\\image\\productss\\ee371c91-41b2-49ed-81a9-dc36f363aa0e_CPU.PNG"
     },
     {
       "Id": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\js\\ajax-mail.js",

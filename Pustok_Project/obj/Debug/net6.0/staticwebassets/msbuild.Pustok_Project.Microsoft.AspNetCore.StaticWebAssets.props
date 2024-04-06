@@ -31280,6 +31280,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\products\product-details-5.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\05335409-5c42-4e13-a328-fe84c2722af5_21312312.PNG))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok_Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok_Project</BasePath>
+      <RelativePath>client/assets/image/productss/05335409-5c42-4e13-a328-fe84c2722af5_21312312.PNG</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\05335409-5c42-4e13-a328-fe84c2722af5_21312312.PNG))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\213ebf77-811f-4a85-a4f6-cef962c28457_sadasd.PNG))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok_Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok_Project</BasePath>
+      <RelativePath>client/assets/image/productss/213ebf77-811f-4a85-a4f6-cef962c28457_sadasd.PNG</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\213ebf77-811f-4a85-a4f6-cef962c28457_sadasd.PNG))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\59a925a7-4166-4d39-825e-2243719bf7ff_CPU.PNG))">
       <SourceType>Package</SourceType>
       <SourceId>Pustok_Project</SourceId>
@@ -31311,6 +31343,54 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\709c3d0a-5dfd-4017-814f-9d11db0e1aec_GPU.PNG))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\c367218a-bb72-4936-a299-a07412b3ab47_sadasd.PNG))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok_Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok_Project</BasePath>
+      <RelativePath>client/assets/image/productss/c367218a-bb72-4936-a299-a07412b3ab47_sadasd.PNG</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\c367218a-bb72-4936-a299-a07412b3ab47_sadasd.PNG))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\e479e287-b5af-4673-8d5c-c61f5ab85ed1_GPU.PNG))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok_Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok_Project</BasePath>
+      <RelativePath>client/assets/image/productss/e479e287-b5af-4673-8d5c-c61f5ab85ed1_GPU.PNG</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\e479e287-b5af-4673-8d5c-c61f5ab85ed1_GPU.PNG))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\ee371c91-41b2-49ed-81a9-dc36f363aa0e_CPU.PNG))">
+      <SourceType>Package</SourceType>
+      <SourceId>Pustok_Project</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/Pustok_Project</BasePath>
+      <RelativePath>client/assets/image/productss/ee371c91-41b2-49ed-81a9-dc36f363aa0e_CPU.PNG</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\image\productss\ee371c91-41b2-49ed-81a9-dc36f363aa0e_CPU.PNG))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\client\assets\js\ajax-mail.js))">
       <SourceType>Package</SourceType>

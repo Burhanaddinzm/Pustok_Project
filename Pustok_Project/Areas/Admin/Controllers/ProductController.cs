@@ -50,35 +50,18 @@ namespace Pustok_Project.Areas.Admin.Controllers
             }
 
             var productImages = new List<ProductImage>();
+
             if (productVM.AdditionalImages != null)
             {
-                foreach (var file in productVM.AdditionalImages)
-                {
-                    var validationResult = file.ValidateFile();
-                    if (!validationResult.IsValid)
-                    {
-                        ModelState.AddModelError("AdditionalImages", validationResult.ErrorMessage);
-                        return View(productVM);
-                    }
-                    productImages.Add(await CreateProductImageAsync(file));
-                }
+                if (!await ValidateAndCreateImageAsync(productVM.AdditionalImages, productImages))
+                    return View(productVM);
             }
 
-            var MainValidationResult = productVM.MainImage.ValidateFile();
-            if (!MainValidationResult.IsValid)
-            {
-                ModelState.AddModelError("MainImage", MainValidationResult.ErrorMessage);
+            if (!await ValidateAndCreateImageAsync(new List<IFormFile> { productVM.MainImage }, productImages))
                 return View(productVM);
-            }
-            productImages.Add(await CreateProductImageAsync(productVM.MainImage));
 
-            var HoverValidationResult = productVM.HoverImage.ValidateFile();
-            if (!HoverValidationResult.IsValid)
-            {
-                ModelState.AddModelError("HoverImage", HoverValidationResult.ErrorMessage);
+            if (!await ValidateAndCreateImageAsync(new List<IFormFile> { productVM.HoverImage }, productImages))
                 return View(productVM);
-            }
-            productImages.Add(await CreateProductImageAsync(productVM.HoverImage));
 
             Product product = new Product
             {
@@ -101,11 +84,24 @@ namespace Pustok_Project.Areas.Admin.Controllers
             return RedirectToAction("index");
         }
 
-        async Task<ProductImage> CreateProductImageAsync(IFormFile file)
+        async Task<bool> ValidateAndCreateImageAsync(List<IFormFile> files, List<ProductImage> productImages)
+        {
+            foreach (var file in files)
+            {
+                var validationResult = file.ValidateFile();
+                if (!validationResult.IsValid)
+                {
+                    ModelState.AddModelError(file.Name, validationResult.ErrorMessage);
+                    return false;
+                }
+                productImages.Add(await CreateProductImageAsync(file, file.Name == "MainImage", file.Name == "HoverImage"));
+            }
+            return true;
+        }
+
+        async Task<ProductImage> CreateProductImageAsync(IFormFile file, bool isMain, bool isHover)
         {
             string uniqueFileName = await file.SaveFileAsync(_env.WebRootPath, "client", "assets", "image", "productss");
-            bool isMain = file.Name == "MainImage";
-            bool isHover = file.Name == "HoverImage";
 
             ProductImage productImage = new ProductImage
             {
