@@ -20,7 +20,8 @@ namespace Pustok_Project.Areas.Admin.Controllers
             DashboardVM vm = new DashboardVM
             {
                 Categories = await _context.Categories.Include(x => x.Products).Include(x => x.Parent).AsNoTracking().ToListAsync(),
-                Brands = await _context.Brands.Include(x => x.Products).AsNoTracking().ToListAsync()
+                Brands = await _context.Brands.Include(x => x.Products).AsNoTracking().ToListAsync(),
+                Products = await _context.Products.Include(x => x.Category).Include(x => x.Brand).Include(x => x.ProductImages).AsNoTracking().ToListAsync()
             };
 
             return View(vm);

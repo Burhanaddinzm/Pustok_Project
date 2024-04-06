@@ -2,9 +2,9 @@
 {
     public enum BookType
     {
-        ForChildren = 0,
-        ForKids = 1,
-        ForTeens = 2,
-        ForAdults = 3
+        ForChildren = 1,
+        ForKids = 2,
+        ForTeens = 3,
+        ForAdults = 4
     }
 }

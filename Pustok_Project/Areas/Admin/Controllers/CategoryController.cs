@@ -52,7 +52,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
-            ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
+            ViewBag.Categories = await _context.Categories.Where(x => x.Id != id).AsNoTracking().ToListAsync();
 
             Category? category = await _context.Categories.Include(x => x.Parent)
                            .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
@@ -64,7 +64,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(Category category)
         {
-            ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
+            ViewBag.Categories = await _context.Categories.Where(x => x.Id != category.Id).AsNoTracking().ToListAsync();
 
             if (!ModelState.IsValid) return View(category);
 
@@ -93,7 +93,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             if (id == null || id == 0) return NotFound();
 
-            Category? category = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+            Category? category = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             if (category == null) return NotFound();
 

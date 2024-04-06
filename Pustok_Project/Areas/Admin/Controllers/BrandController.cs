@@ -4,8 +4,6 @@ using Pustok_Project.Areas.Admin.ViewModels;
 using Pustok_Project.Data.Contexts;
 using Pustok_Project.Extensions;
 using Pustok_Project.Models;
-using System;
-using System.Drawing;
 
 namespace Pustok_Project.Areas.Admin.Controllers
 {
@@ -119,7 +117,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
         {
             if (id == null || id == 0) return NotFound();
 
-            Brand? brand = await _context.Brands.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+            Brand? brand = await _context.Brands.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
             if (brand == null) return NotFound();
 
@@ -133,6 +131,8 @@ namespace Pustok_Project.Areas.Admin.Controllers
             Brand? brand = await _context.Brands.FindAsync(id);
 
             if (brand == null) return BadRequest();
+
+            //brand.Image.DeleteFile(_env.WebRootPath, "client", "assets", "image", "brands", brand.ImageUrl);
 
             brand.IsDeleted = true;
 
