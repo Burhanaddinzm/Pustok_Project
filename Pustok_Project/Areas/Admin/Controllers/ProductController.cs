@@ -139,6 +139,19 @@ namespace Pustok_Project.Areas.Admin.Controllers
             return RedirectToAction("index");
         }
 
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id == null || id == 0) return NotFound();
+
+            Product? product = await _context.Products
+                .Include(x => x.Brand).Include(x => x.Category).Include(x => x.ProductImages)
+                .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
+
+            if (product == null) return NotFound();
+
+            return View(product);
+        }
+
         async Task<bool> ValidateAndCreateImageAsync(List<IFormFile> files, List<ProductImage> productImages)
         {
             foreach (var file in files)

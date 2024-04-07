@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Product Detail";
+    string bookTypeString = string.Concat(Model.BookType.ToString().Select((x, i) => i > 0 && char.IsUpper(x) ? " " + x.ToString() : x.ToString()));
+}
+@model Product
+
+<div class="mb-3">
+    <h3 class="text-primary">Name</h3>
+    <p>@Model.Name</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Description</h3>
+    <p>@Model.Description</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">ExTax Price</h3>
+    <p>@Model.ExTaxPrice</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Discount Price</h3>
+    <p>@Model.DiscountPrice</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Price</h3>
+    <p>@Model.Price</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Rating</h3>
+    <p>@Model.Rating</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">In Stock</h3>
+    <p>@(Model.IsInStock ? "Yes" : "No")</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Category</h3>
+    <p>@Model.Category.Name</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Brand</h3>
+    <p>@Model.Brand.Name</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Type</h3>
+    <p>@bookTypeString</p>
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Main Image</h3>
+    <img style="width:100px; height:100px; object-fit:cover;" src="~/client/assets/image/productss/@Model.ProductImages.FirstOrDefault(x=> x.IsMain).Url" />
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Hover Image</h3>
+    <img style="width:100px; height:100px; object-fit:cover;" src="~/client/assets/image/productss/@Model.ProductImages.FirstOrDefault(x=> x.IsHover).Url" />
+</div>
+<div class="mb-3">
+    <h3 class="text-primary">Additional Images</h3>
+    @foreach (var image in Model.ProductImages.Where(x => !x.IsMain && !x.IsHover))
+    {
+        <img style="width:100px; height:100px; object-fit:cover;" src="~/client/assets/image/productss/@image.Url" />
+    }
+</div>
+

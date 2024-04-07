@@ -4,3 +4,16 @@
 @model List<Category>
 
 <partial name="_CategoryPartial" model="@Model" />
+
+@section Scripts {
+    <script>
+        const selectListCat = document.getElementById("slct-cat");
+        const productBtnCat = document.getElementById("product-btn-cat");
+
+        productBtnCat.href = "product/detail/" + selectListCat.value;
+
+        selectListCat.addEventListener("change", () => {
+            productBtnCat.href = "product/detail/" + selectListCat.value;
+        })
+    </script>
+}

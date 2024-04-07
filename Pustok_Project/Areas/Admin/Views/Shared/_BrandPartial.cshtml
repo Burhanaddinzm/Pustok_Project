@@ -14,8 +14,7 @@
                                 <thead>
                                     <tr role="row">
                                         <th class="sorting sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 200px;">Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 200px;">Product Name</th>
-                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 200px;">Product Description</th>
+                                        <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 200px;">Products</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;">Image</th>
                                         <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 100px;"></th>
                                     </tr>
@@ -25,25 +24,23 @@
                                     {
                                         if (brand.Products.Count != 0)
                                         {
-                                            @foreach (var product in brand.Products)
-                                            {
-                                                <tr>
-                                                    <td>@brand.Name</td>
-                                                    <td>@product.Name</td>
-                                                    <td>@product.Description</td>
-                                                    <td><img style="width:100px; height:100px; object-fit:cover" src="~/client/assets/image/brands/@brand.ImageUrl" /></td>
-                                                    <td style="display:flex; gap:8px; align-items:center; justify-content:center;border-bottom:none;">
-                                                        <a class="btn btn-primary" asp-route-id="@brand.Id" asp-controller="Brand" asp-action="Edit">Edit</a>
-                                                        <a class="btn btn-danger mt-2" asp-route-id="@brand.Id" asp-controller="Brand" asp-action="Delete">Delete</a>
-                                                    </td>
-                                                </tr>
-                                            }
+                                            <tr>
+                                                <td>@brand.Name</td>
+                                                <td>
+                                                    <select id="slct-brand" style="width:300px" asp-items="@(new SelectList(brand.Products,nameof(Product.Id),nameof(Product.Name)))"></select>
+                                                    <a id="product-btn-brnd" href="#" class="btn btn-secondary ml-2">Go to product</a>
+                                                </td>
+                                                <td><img style="width:100px; height:100px; object-fit:cover" src="~/client/assets/image/brands/@brand.ImageUrl" /></td>
+                                                <td style="display:flex; gap:8px; align-items:center; justify-content:center;border-bottom:none;">
+                                                    <a class="btn btn-primary" asp-route-id="@brand.Id" asp-controller="Brand" asp-action="Edit">Edit</a>
+                                                    <a class="btn btn-danger mt-2" asp-route-id="@brand.Id" asp-controller="Brand" asp-action="Delete">Delete</a>
+                                                </td>
+                                            </tr>
                                         }
                                         else
                                         {
                                             <tr>
                                                 <td>@brand.Name</td>
-                                                <td>Products not found!</td>
                                                 <td>Products not found!</td>
                                                 <td><img style="width:100px; height:100px; object-fit:cover" src="~/client/assets/image/brands/@brand.ImageUrl" /></td>
                                                 <td style="display:flex; gap:8px; align-items:center; justify-content:center;border-bottom:none;">

@@ -14,3 +14,25 @@
 <h1 style="margin:4px 0; display:flex; align-items:center; justify-content:center;">Products</h1>
 <hr />
 <partial name="_ProductPartial" model="@Model.Products" />
+
+@section Scripts {
+    <script>
+        const selectListBrand = document.getElementById("slct-brand");
+        const productBtnBrand = document.getElementById("product-btn-brnd");
+
+        productBtnBrand.href = "admin/product/detail/" + selectListBrand.value;
+
+        selectListBrand.addEventListener("change", () => {
+            productBtnBrand.href = "admin/product/detail/" + selectListBrand.value;
+        })
+
+        const selectListCat = document.getElementById("slct-cat");
+        const productBtnCat = document.getElementById("product-btn-cat");
+
+        productBtnCat.href = "admin/product/detail/" + selectListCat.value;
+
+        selectListCat.addEventListener("change", () => {
+            productBtnCat.href = "admin/product/detail/" + selectListCat.value;
+        })
+    </script>
+}
