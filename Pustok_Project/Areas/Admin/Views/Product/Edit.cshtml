@@ -1,1 +1,82 @@
-﻿
+﻿@{
+    ViewData["Title"] = "Edit Product";
+}
+@model ProductEditVM
+
+<form asp-controller="product" asp-action="edit" asp-area="admin" method="post" enctype="multipart/form-data">
+    <input style="display:none" asp-for="Id" />
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control" id="name">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <input asp-for="Description" class="form-control" id="desc">
+        <span class="text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div class="mb-3">
+        <label for="exp" class="form-label">ExTax Price</label>
+        <input asp-for="ExTaxPrice" class="form-control" id="exp">
+        <span class="text-danger" asp-validation-for="ExTaxPrice"></span>
+    </div>
+    <div class="mb-3">
+        <label for="dp" class="form-label">Discount Price</label>
+        <input asp-for="DiscountPrice" class="form-control" id="dp">
+        <span class="text-danger" asp-validation-for="DiscountPrice"></span>
+    </div>
+    <div class="mb-3">
+        <label for="p" class="form-label">Price</label>
+        <input asp-for="Price" class="form-control" id="p">
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3">
+        <label for="rt" class="form-label">Rating</label>
+        <input asp-for="Rating" class="form-control" id="rt">
+        <span class="text-danger" asp-validation-for="Rating"></span>
+    </div>
+    <div class="mb-3">
+        <label for="cat" class="form-label">Category</label>
+        <select id="cat" class="form-control" asp-for="CategoryId" asp-items="@(new SelectList(ViewBag.Categories,nameof(Category.Id),nameof(Category.Name)))">
+            <option value="" selected>Select Category</option>
+        </select>
+        <span class="text-danger" asp-validation-for="CategoryId"></span>
+    </div>
+    <div class="mb-3">
+        <label for="brnd" class="form-label">Brand</label>
+        <select id="brnd" class="form-control" asp-for="BrandId" asp-items="@(new SelectList(ViewBag.Brands,nameof(Brand.Id),nameof(Brand.Name)))">
+            <option value="" selected>Select Brand</option>
+        </select>
+        <span class="text-danger" asp-validation-for="BrandId"></span>
+    </div>
+    <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <select id="type" class="form-control" asp-for="BookType" asp-items="Html.GetEnumSelectList<BookType>()">
+            <option value="" selected>Select Type</option>
+        </select>
+        <span class="text-danger" asp-validation-for="BookType"></span>
+    </div>
+    <div class="mb-3">
+        <label for="mimg" class="form-label">Main Image</label>
+        <input asp-for="MainImage" class="form-control" id="mimg">
+        <span class="text-danger" asp-validation-for="MainImage"></span>
+    </div>
+    <div class="mb-3">
+        <label for="himg" class="form-label">Hover Image</label>
+        <input asp-for="HoverImage" class="form-control" id="himg">
+        <span class="text-danger" asp-validation-for="HoverImage"></span>
+    </div>
+    <div class="mb-3">
+        <label for="imgs" class="form-label">Additional Images</label>
+        <input asp-for="AdditionalImages" class="form-control" id="imgs">
+        <span class="text-danger" asp-validation-for="AdditionalImages"></span>
+    </div>
+    <div class="mb-3" style="display:flex;align-items:center;">
+        <label for="bit" class="form-label">In Stock?</label>
+        <input asp-for="IsInStock" class="mx-2" style="width:20px;height:20px" id="bit">
+        <span class="text-danger" asp-validation-for="IsInStock"></span>
+    </div>
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-action="index" asp-controller="product" asp-area="admin" class="btn btn-secondary mx-2">Back to list</a>
+</form>

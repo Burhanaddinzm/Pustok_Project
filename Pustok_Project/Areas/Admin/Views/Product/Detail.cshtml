@@ -5,6 +5,10 @@
 @model Product
 
 <div class="mb-3">
+    <a class="btn btn-primary" asp-route-id="@Model.Id" asp-controller="Product" asp-action="Edit">Edit</a>
+    <a class="btn btn-danger mt-2" asp-route-id="@Model.Id" asp-controller="Product" asp-action="Delete">Delete</a>
+</div>
+<div class="mb-3">
     <h3 class="text-primary">Name</h3>
     <p>@Model.Name</p>
 </div>

@@ -1,4 +1,5 @@
-﻿using Pustok_Project.Enums;
+﻿using Pustok_Project.Areas.Admin.ViewModels;
+using Pustok_Project.Enums;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Pustok_Project.Models

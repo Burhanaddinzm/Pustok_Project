@@ -91,22 +91,83 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             if (id == null || id == 0) return NotFound();
 
-            Product? product = await _context.Products.AsNoTracking().Include(x => x.ProductImages).FirstOrDefaultAsync(x => x.Id == id);
+            Product? product = await _context.Products.AsNoTracking()
+                .Include(x => x.ProductImages).Include(x => x.Category).Include(x => x.Brand).FirstOrDefaultAsync(x => x.Id == id);
 
             if (product == null) return NotFound();
 
-            return View(product);
+            ProductEditVM vm = product;
+
+            return View(vm);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int? id, Product product)
+        public async Task<IActionResult> Edit(ProductEditVM product)
         {
             ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
             ViewBag.Brands = await _context.Brands.AsNoTracking().ToListAsync();
 
             if (!ModelState.IsValid) return View(product);
 
-            if (id != product.Id) return BadRequest();
+            Product? existingProduct = await _context.Products.Include(x => x.Category).Include(x => x.Brand).Include(x => x.ProductImages).FirstOrDefaultAsync(x => x.Id == product.Id);
 
+            if (existingProduct == null) return BadRequest();
+
+            if (await _context.Products.Where(x => x.Id != product.Id).AnyAsync(x => x.Name.ToLower() == product.Name.ToLower()))
+            {
+                ModelState.AddModelError("Name", "This product already exists!");
+                return View(product);
+            }
+
+            var productImages = new List<ProductImage>();
+
+            if (product.AdditionalImages != null)
+            {
+                if (!await ValidateAndCreateImageAsync(product.AdditionalImages, productImages))
+                    return View(product);
+            }
+
+            if (product.MainImage != null)
+            {
+                var mainImage = existingProduct.ProductImages.FirstOrDefault(x => x.IsMain);
+                if (mainImage != null)
+                {
+                    mainImage.IsMain = false;
+                }
+
+                if (!await ValidateAndCreateImageAsync(new List<IFormFile> { product.MainImage }, productImages))
+                    return View(product);
+            }
+
+            if (product.HoverImage != null)
+            {
+                var hoverImage = existingProduct.ProductImages.FirstOrDefault(x => x.IsHover);
+                if (hoverImage != null)
+                {
+                    hoverImage.IsHover = false;
+                }
+
+                if (!await ValidateAndCreateImageAsync(new List<IFormFile> { product.HoverImage }, productImages))
+                    return View(product);
+            }
+
+            existingProduct.Name = product.Name;
+            existingProduct.Description = product.Description;
+            existingProduct.ExTaxPrice = product.ExTaxPrice;
+            existingProduct.DiscountPrice = product.DiscountPrice;
+            existingProduct.Price = product.Price;
+            existingProduct.Rating = product.Rating;
+            existingProduct.BookType = product.BookType;
+            existingProduct.CategoryId = product.CategoryId;
+            existingProduct.BrandId = product.BrandId;
+            existingProduct.IsInStock = product.IsInStock;
+
+            foreach (var image in productImages)
+            {
+                existingProduct.ProductImages.Add(image);
+            }
+
+            _context.Update(existingProduct);
+            await _context.SaveChangesAsync();
             return RedirectToAction("index");
         }
 
