@@ -230,6 +230,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             productImage.IsDeleted = true;
             _context.ProductImages.Update(productImage);
+            await _context.SaveChangesAsync();
 
             return Json("Success");
         }
