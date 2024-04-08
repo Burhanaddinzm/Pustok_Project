@@ -13,6 +13,7 @@
 
 <body>
     <div class="site-wrapper" id="top">
+        @* HEADER *@
         <div class="site-header d-none d-lg-block">
             <div class="header-middle pt--10 pb--10">
                 <div class="container">
@@ -100,18 +101,20 @@
                             </nav>
                         </div>
 
+                        @* SEARCH *@
                         <div class="col-lg-5">
                             <div class="header-search-block">
                                 <input type="text" placeholder="Search entire store here">
                                 <button>Search</button>
                             </div>
                         </div>
+                        @* ACCOUNT *@
                         <div class="col-lg-4">
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        <a href="login-register.html" class="font-weight-bold">Login</a> <br>
-                                        <span>or</span><a href="login-register.html">Register</a>
+                                        <a asp-controller="account" asp-action="login" class="font-weight-bold">Login</a> <br>
+                                        <span>or</span><a asp-controller="account" asp-action="register">Register</a>
                                     </div>
                                     <div class="cart-block">
                                         <div class="cart-total">
@@ -163,6 +166,7 @@
                 </div>
             </div>
         </div>
+        @* HEADER MOBILE *@
         <div class="site-mobile-menu">
             <header class="mobile-header d-block d-lg-none pt--10 pb-md--10">
                 <div class="container">
@@ -313,6 +317,7 @@
             </aside>
             <!--Off Canvas Navigation End-->
         </div>
+        @* HEADER STICKY *@
         <div class="sticky-init fixed-header common-sticky ">
             <div class="container d-none d-lg-block">
                 <div class="row align-items-center">

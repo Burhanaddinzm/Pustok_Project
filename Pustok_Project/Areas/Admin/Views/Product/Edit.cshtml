@@ -80,10 +80,10 @@
     <button type="submit" class="btn btn-primary">Submit</button>
     <a asp-action="index" asp-controller="product" asp-area="admin" class="btn btn-secondary mx-2">Back to list</a>
 </form>
-<div class="my-5">
+<div class="my-5" >
     <h3>Images</h3>
     <hr />
-    <div class="image-container">
+    <div class="image-container" style="display:flex;flex-wrap:nowrap;overflow-y:scroll">
     </div>
 </div>
 @section Scripts {
@@ -107,7 +107,7 @@
 
         getProductImagesAsync().then(imageSpans => imageSpans.forEach(span => {
             span.addEventListener("click", async () => {
-                deleteProductImageAsync(span.dataset.id);
+                await deleteProductImageAsync(span.dataset.id);
                 window.location.reload();
             })
         }))

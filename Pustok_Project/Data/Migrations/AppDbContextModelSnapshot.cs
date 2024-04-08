@@ -255,7 +255,7 @@ namespace Pustok_Project.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brands", (string)null);
                 });
 
             modelBuilder.Entity("Pustok_Project.Models.Category", b =>
@@ -286,7 +286,7 @@ namespace Pustok_Project.Data.Migrations
 
                     b.HasIndex("ParentId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Pustok_Project.Models.Product", b =>
@@ -343,7 +343,7 @@ namespace Pustok_Project.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Pustok_Project.Models.ProductImage", b =>
@@ -380,7 +380,7 @@ namespace Pustok_Project.Data.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("ProductImages");
+                    b.ToTable("ProductImages", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

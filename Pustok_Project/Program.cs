@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Pustok_Project.Data.Contexts;
+using Pustok_Project.Enums;
 using Pustok_Project.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +15,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.User.RequireUniqueEmail = true;
     options.Password.RequireDigit = true;
     options.Password.RequireUppercase = true;
-    options.Password.RequiredLength = 8;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequiredLength = 5;
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
 
 var app = builder.Build();
@@ -45,5 +47,43 @@ app.UseEndpoints(endpoints =>
         pattern: "{controller=Home}/{action=Index}/{id?}"
     );
 });
+
+using (var scope = app.Services.CreateScope())
+{
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    string Id = Guid.NewGuid().ToString();
+    string Name = "Admin";
+    string Surname = "Admin";
+    string Username = "Admin";
+    string Email = "admin@admin.com";
+    string Password = "Admin123";
+
+    if (await userManager.FindByNameAsync("Admin") == null)
+    {
+        var user = new AppUser()
+        {
+            Id = Id,
+            Name = Name,
+            Surname = Surname,
+            UserName = Username,
+            Email = Email
+        };
+
+        var result = await userManager.CreateAsync(user, Password);
+
+        if (result.Succeeded)
+        {
+            foreach (var role in Enum.GetValues(typeof(Roles)))
+            {
+                if (!await roleManager.RoleExistsAsync(role.ToString()))
+                    await roleManager.CreateAsync(new IdentityRole(role.ToString()));
+            }
+
+            await userManager.AddToRoleAsync(user, Roles.Admin.ToString());
+        }
+    }
+}
 
 app.Run();
