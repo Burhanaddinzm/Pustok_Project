@@ -80,3 +80,36 @@
     <button type="submit" class="btn btn-primary">Submit</button>
     <a asp-action="index" asp-controller="product" asp-area="admin" class="btn btn-secondary mx-2">Back to list</a>
 </form>
+<div class="my-5">
+    <h3>Images</h3>
+    <hr />
+    <div class="image-container">
+    </div>
+</div>
+@section Scripts {
+    <script>
+        const productId = document.getElementById("Id").value
+        const imageContainer = document.querySelector(".image-container");
+
+        const getProductImagesAsync = async () => {
+            const response = await fetch(`https://localhost:7222/Admin/Product/ProductImage/${productId}`);
+            const data = await response.text();
+            imageContainer.innerHTML = data
+
+            return document.querySelectorAll(".image-container span");
+        }
+
+        const deleteProductImageAsync = async (imageId) => {
+            const response = await fetch(`https://localhost:7222/Admin/Product/DeleteImage/${imageId}`, {
+                method: "POST"
+            });
+        }
+
+        getProductImagesAsync().then(imageSpans => imageSpans.forEach(span => {
+            span.addEventListener("click", async () => {
+                deleteProductImageAsync(span.dataset.id);
+                getProductImagesAsync();
+            })
+        }))
+    </script>
+}

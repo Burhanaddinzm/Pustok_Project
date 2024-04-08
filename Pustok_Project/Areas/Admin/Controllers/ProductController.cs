@@ -213,6 +213,27 @@ namespace Pustok_Project.Areas.Admin.Controllers
             return View(product);
         }
 
+        public async Task<IActionResult> ProductImage(int? id)
+        {
+            List<ProductImage> productImages = await _context.ProductImages.Where(x => x.ProductId == id).AsNoTracking().ToListAsync();
+
+            if (productImages == null) return NotFound();
+
+            return PartialView("_ProductImagePartial", productImages);
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteImage(int? id)
+        {
+            ProductImage? productImage = await _context.ProductImages.FindAsync(id);
+
+            if (productImage == null) return NotFound();
+
+            productImage.IsDeleted = true;
+            _context.ProductImages.Update(productImage);
+
+            return Json("Success");
+        }
+
         async Task<bool> ValidateAndCreateImageAsync(List<IFormFile> files, List<ProductImage> productImages)
         {
             foreach (var file in files)

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "km8wcuVMxS7yjVtIi3KeI2tCEAnpeu0cZOqxz5qeF5c=",
+  "Hash": "oAnYgqWOuIQR0FTpt6ePzUFXhXpVt77j+EZt4/ua9Fo=",
   "Source": "Pustok_Project",
   "BasePath": "_content/Pustok_Project",
   "Mode": "Default",
@@ -37219,6 +37219,25 @@
       "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\0b2592c3-ebb2-4393-ad13-dbaaa25b73a9_Capture2.PNG"
     },
     {
+      "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\1a695ab3-41ff-474c-9fe6-475d99d0a1c5_CPU.PNG",
+      "SourceId": "Pustok_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\",
+      "BasePath": "_content/Pustok_Project",
+      "RelativePath": "client/assets/image/productss/1a695ab3-41ff-474c-9fe6-475d99d0a1c5_CPU.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\1a695ab3-41ff-474c-9fe6-475d99d0a1c5_CPU.PNG"
+    },
+    {
       "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\1f85c250-c13b-4173-917b-7607c40ea71e_Capture2.PNG",
       "SourceId": "Pustok_Project",
       "SourceType": "Discovered",
@@ -37371,6 +37390,25 @@
       "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\7c2daee8-37e1-40d7-9b96-17bdc413e10b_CPU.PNG"
     },
     {
+      "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\9046dfe0-9496-4dae-8c45-e3fbb4aae57b_Capture2.PNG",
+      "SourceId": "Pustok_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\",
+      "BasePath": "_content/Pustok_Project",
+      "RelativePath": "client/assets/image/productss/9046dfe0-9496-4dae-8c45-e3fbb4aae57b_Capture2.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\9046dfe0-9496-4dae-8c45-e3fbb4aae57b_Capture2.PNG"
+    },
+    {
       "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\b6293e3d-8368-4a02-9fd1-918f1574121e_21312312.PNG",
       "SourceId": "Pustok_Project",
       "SourceType": "Discovered",
@@ -37464,6 +37502,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\ee371c91-41b2-49ed-81a9-dc36f363aa0e_CPU.PNG"
+    },
+    {
+      "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\f4c5b8a5-3de6-42a8-ab51-d73d9441359e_12312312.PNG",
+      "SourceId": "Pustok_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\",
+      "BasePath": "_content/Pustok_Project",
+      "RelativePath": "client/assets/image/productss/f4c5b8a5-3de6-42a8-ab51-d73d9441359e_12312312.PNG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\f4c5b8a5-3de6-42a8-ab51-d73d9441359e_12312312.PNG"
     },
     {
       "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\js\\ajax-mail.js",
