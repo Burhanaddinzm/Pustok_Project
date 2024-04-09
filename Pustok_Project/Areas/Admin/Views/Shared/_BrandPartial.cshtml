@@ -27,8 +27,8 @@
                                             <tr>
                                                 <td>@brand.Name</td>
                                                 <td>
-                                                    <select id="slct-brand" style="width:300px" asp-items="@(new SelectList(brand.Products,nameof(Product.Id),nameof(Product.Name)))"></select>
-                                                    <a id="product-btn-brnd" href="#" class="btn btn-secondary ml-2">Go to product</a>
+                                                    <select class="slct-brand" style="width:300px" asp-items="@(new SelectList(brand.Products,nameof(Product.Id),nameof(Product.Name)))"></select>
+                                                    <a href="#" class="product-btn-brnd btn btn-secondary ml-2">Go to product</a>
                                                 </td>
                                                 <td><img style="width:100px; height:100px; object-fit:cover" src="~/client/assets/image/brands/@brand.ImageUrl" /></td>
                                                 <td style="display:flex; gap:8px; align-items:center; justify-content:center;border-bottom:none;">
@@ -41,7 +41,7 @@
                                         {
                                             <tr>
                                                 <td>@brand.Name</td>
-                                                <td>Products not found!</td>
+                                                <td style="color:goldenrod;">Products not found!</td>
                                                 <td><img style="width:100px; height:100px; object-fit:cover" src="~/client/assets/image/brands/@brand.ImageUrl" /></td>
                                                 <td style="display:flex; gap:8px; align-items:center; justify-content:center;border-bottom:none;">
                                                     <a class="btn btn-primary" asp-route-id="@brand.Id" asp-controller="Brand" asp-action="Edit">Edit</a>

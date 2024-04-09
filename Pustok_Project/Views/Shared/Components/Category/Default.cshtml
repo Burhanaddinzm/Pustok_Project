@@ -1,0 +1,20 @@
+﻿@model List<Category>
+
+@if (Model == null) return;
+
+@foreach (var category in Model.Where(c => c.ParentId == null))
+{
+    bool hasChildren = Model.Any(s => s.ParentId == category.Id);
+    <li class="cat-item @(hasChildren ? "has-children" : "")">
+        <a href="#">@category.Name</a>
+        @if (hasChildren)
+        {
+            <ul class="sub-menu">
+                @foreach (var subcategory in Model.Where(s => s.ParentId == category.Id))
+                {
+                    <li><a href="#">@subcategory.Name</a></li>
+                }
+            </ul>
+        }
+    </li>
+}

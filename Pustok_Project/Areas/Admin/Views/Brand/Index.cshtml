@@ -7,13 +7,14 @@
 
 @section Scripts {
     <script>
-        const selectListBrand = document.getElementById("slct-brand");
-        const productBtnBrand = document.getElementById("product-btn-brnd");
+        const selectListBrands = document.querySelectorAll(".slct-brand");
+        const productBtnBrands = document.querySelectorAll(".product-btn-brnd");
 
-        productBtnBrand.href = "product/detail/" + selectListBrand.value;
-
-        selectListBrand.addEventListener("change", () => {
-            productBtnBrand.href = "product/detail/" + selectListBrand.value;
-        })
+        selectListBrands.forEach((brnd, index) => {
+            productBtnBrands[index].href = "product/detail/" + brnd.value;
+            brnd.addEventListener("click", () => {
+                productBtnBrands[index].href = "product/detail/" + brnd.value;
+            });
+        });
     </script>
 }

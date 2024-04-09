@@ -27,10 +27,19 @@
                                             <tr>
                                                 <td>@category.Name</td>
                                                 <td>
-                                                    <select id="slct-cat" style="width:300px" asp-items="@(new SelectList(category.Products,nameof(Product.Id),nameof(Product.Name)))"></select>
-                                                    <a id="product-btn-cat" href="#" class="btn btn-secondary ml-2">Go to product</a>
+                                                    <select class="slct-cat" style="width:300px" asp-items="@(new SelectList(category.Products,nameof(Product.Id),nameof(Product.Name)))"></select>
+                                                    <a href="#" class="product-btn-cat btn btn-secondary ml-2">Go to product</a>
                                                 </td>
-                                                <td>@(category.Parent != null ? category.Parent.Name : "No Parent")</td>
+                                                <td>
+                                                    @if (category.Parent != null)
+                                                    {
+                                                        <span style="color:#009f65;">@category.Parent.Name</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span style="color:goldenrod;">No Parent</span>
+                                                    }
+                                                </td>
                                                 <td style="display:flex; gap:8px; align-items:center; justify-content:center;">
                                                     <a class="btn btn-primary" asp-route-id="@category.Id" asp-controller="Category" asp-action="Edit">Edit</a>
                                                     <a class="btn btn-danger mt-2" asp-route-id="@category.Id" asp-controller="Category" asp-action="Delete">Delete</a>
@@ -41,8 +50,17 @@
                                         {
                                             <tr>
                                                 <td>@category.Name</td>
-                                                <td>Products not found!</td>
-                                                <td>@(category.Parent != null ? category.Parent.Name : "No Parent")</td>
+                                                <td style="color:goldenrod;">Products not found!</td>
+                                                <td>
+                                                    @if (category.Parent != null)
+                                                    {
+                                                        <span style="color:#009f65;">@category.Parent.Name</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span style="color:goldenrod;">No Parent</span>
+                                                    }
+                                                </td>
                                                 <td style="display:flex; gap:8px; align-items:center; justify-content:center;">
                                                     <a class="btn btn-primary" asp-route-id="@category.Id" asp-controller="Category" asp-action="Edit">Edit</a>
                                                     <a class="btn btn-danger" asp-route-id="@category.Id" asp-controller="Category" asp-action="Delete">Delete</a>

@@ -17,22 +17,24 @@
 
 @section Scripts {
     <script>
-        const selectListBrand = document.getElementById("slct-brand");
-        const productBtnBrand = document.getElementById("product-btn-brnd");
+        const selectListBrands = document.querySelectorAll(".slct-brand");
+        const productBtnBrands = document.querySelectorAll(".product-btn-brnd");
 
-        productBtnBrand.href = "admin/product/detail/" + selectListBrand.value;
+        selectListBrands.forEach((brnd, index) => {
+            productBtnBrands[index].href = "admin/product/detail/" + brnd.value;
+            brnd.addEventListener("click", () => {
+                productBtnBrands[index].href = "admin/product/detail/" + brnd.value;
+            });
+        });
 
-        selectListBrand.addEventListener("change", () => {
-            productBtnBrand.href = "admin/product/detail/" + selectListBrand.value;
-        })
+        const selectListCats = document.querySelectorAll(".slct-cat");
+        const productBtnCats = document.querySelectorAll(".product-btn-cat");
 
-        const selectListCat = document.getElementById("slct-cat");
-        const productBtnCat = document.getElementById("product-btn-cat");
-
-        productBtnCat.href = "admin/product/detail/" + selectListCat.value;
-
-        selectListCat.addEventListener("change", () => {
-            productBtnCat.href = "admin/product/detail/" + selectListCat.value;
-        })
+        selectListCats.forEach((cat, index) => {
+            productBtnCats[index].href = "admin/product/detail/" + cat.value;
+            cat.addEventListener("click", () => {
+                productBtnCats[index].href = "admin/product/detail/" + cat.value;
+            });
+        });
     </script>
 }

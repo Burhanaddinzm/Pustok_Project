@@ -41,7 +41,16 @@
                                             <td>@product.BookType</td>
                                             <td>@product.Category.Name</td>
                                             <td>@product.Brand.Name</td>
-                                            <td>@(product.IsInStock ? "Yes" : "No")</td>
+                                            <td>
+                                                @if (product.IsInStock)
+                                                {
+                                                    <span style="color:#009f65;">Yes</span>
+                                                }
+                                                else
+                                                {
+                                                    <span style="color:goldenrod;">No</span>
+                                                }
+                                            </td>
                                             <td style="display:flex; gap:8px; align-items:center; justify-content:center;border-bottom:none;">
                                                 <a class="btn btn-secondary" asp-route-id="@product.Id" asp-controller="Product" asp-action="Detail">Detail</a>
                                                 <a class="btn btn-primary" asp-route-id="@product.Id" asp-controller="Product" asp-action="Edit">Edit</a>

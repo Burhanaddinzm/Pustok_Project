@@ -7,13 +7,14 @@
 
 @section Scripts {
     <script>
-        const selectListCat = document.getElementById("slct-cat");
-        const productBtnCat = document.getElementById("product-btn-cat");
+        const selectListCats = document.querySelectorAll(".slct-cat");
+        const productBtnCats = document.querySelectorAll(".product-btn-cat");
 
-        productBtnCat.href = "product/detail/" + selectListCat.value;
-
-        selectListCat.addEventListener("change", () => {
-            productBtnCat.href = "product/detail/" + selectListCat.value;
-        })
+        selectListCats.forEach((cat, index) => {
+            productBtnCats[index].href = "product/detail/" + cat.value;
+            cat.addEventListener("click", () => {
+                productBtnCats[index].href = "product/detail/" + cat.value;
+            });
+        });
     </script>
 }
