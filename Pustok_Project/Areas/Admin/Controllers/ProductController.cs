@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Pustok_Project.Areas.Admin.ViewModels;
 using Pustok_Project.Data.Contexts;
@@ -7,6 +8,7 @@ using Pustok_Project.Models;
 
 namespace Pustok_Project.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     [Area("Admin")]
     public class ProductController : Controller
     {

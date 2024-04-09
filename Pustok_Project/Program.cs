@@ -17,7 +17,16 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
     options.Password.RequireUppercase = true;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 5;
+    options.Lockout.AllowedForNewUsers = false;
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
 }).AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.LoginPath = "/Account/Login";
+    x.AccessDeniedPath = "/Error/Index";
+});
 
 var app = builder.Build();
 
@@ -34,6 +43,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
@@ -62,7 +72,7 @@ using (var scope = app.Services.CreateScope())
 
     if (await userManager.FindByNameAsync("Admin") == null)
     {
-        var user = new AppUser()
+        var user = new AppUser
         {
             Id = Id,
             Name = Name,

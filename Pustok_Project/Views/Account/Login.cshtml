@@ -1,47 +1,55 @@
 ﻿@{
-	ViewData["Title"] = "Login";
+    ViewData["Title"] = "Login";
 }
+@model LoginVM
 
 <section class="breadcrumb-section">
-	<h2 class="sr-only">Site Breadcrumb</h2>
-	<div class="container">
-		<div class="breadcrumb-contents">
-			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a asp-controller="home" asp-action="index">Home</a></li>
-					<li class="breadcrumb-item active">Login</li>
-				</ol>
-			</nav>
-		</div>
-	</div>
+    <h2 class="sr-only">Site Breadcrumb</h2>
+    <div class="container">
+        <div class="breadcrumb-contents">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="home" asp-action="index">Home</a></li>
+                    <li class="breadcrumb-item active">Login</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
 </section>
 
 <main class="page-section inner-page-sec-padding-bottom">
-	<div class="container">
-		<div class="row" style="display:flex;align-items:center;justify-content:center">
-			<div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
-				<form action="#">
-					<div class="login-form">
-						<h4 class="login-title">Returning Customer</h4>
-						<p><span class="font-weight-bold">I am a returning customer</span></p>
-						<div class="row">
-							<div class="col-md-12 col-12 mb--15">
-								<label for="email">Enter your email address here...</label>
-								<input class="mb-0 form-control" type="email" id="email1"
-									   placeholder="Enter you email address here...">
-							</div>
-							<div class="col-12 mb--20">
-								<label for="password">Password</label>
-								<input class="mb-0 form-control" type="password" id="login-password" placeholder="Enter your password">
-							</div>
-							<div class="col-md-12">
-								<a href="#" class="btn btn-outlined">Login</a>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
+    <div class="container">
+        <div class="row" style="display:flex;align-items:center;justify-content:center">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                <form method="post" asp-controller="account" asp-action="login">
+                    <div class="login-form">
+                        <h4 class="login-title">Returning Customer</h4>
+                        <p><span class="font-weight-bold">I am a returning customer</span></p>
+                        <div class="row">
+                            <div class="col-md-12 col-12 mb--15">
+                                <label for="email">Enter your Username here...</label>
+                                <input asp-for="UserName" class="mb-0 form-control" id="email1"
+                                       placeholder="Enter you Username here...">
+                                <span class="text-danger" asp-validation-for="UserName"></span>
+                            </div>
+                            <div class="col-12 mb--20">
+                                <label for="password">Password</label>
+                                <input asp-for="Password" class="mb-0 form-control" id="login-password" placeholder="Enter your password">
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <div class="col-12 mb--20 d-flex align-items-center" style="gap:10px">
+                                <label for="remember" style="margin:0;">Remember Me</label>
+                                <input id="remember" asp-for="RememberMe">
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-outlined">Login</button>
+                                <div asp-validation-summary="ModelOnly"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-		</div>
-	</div>
+        </div>
+    </div>
 </main>

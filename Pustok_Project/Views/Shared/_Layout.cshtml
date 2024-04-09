@@ -65,6 +65,12 @@
                                     <li class="menu-item">
                                         <a href="#">Contact</a>
                                     </li>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li class="menu-item">
+                                            <a asp-controller="dashboard" asp-action="index" asp-area="admin">Dashboard</a>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                         </div>
@@ -113,8 +119,17 @@
                             <div class="main-navigation flex-lg-right">
                                 <div class="cart-widget">
                                     <div class="login-block">
-                                        <a asp-controller="account" asp-action="login" class="font-weight-bold">Login</a> <br>
-                                        <span>or</span><a asp-controller="account" asp-action="register">Register</a>
+                                        @if (User.Identity.Name == null)
+                                        {
+                                            <a asp-controller="account" asp-action="login" class="font-weight-bold">Login</a> <br>
+                                            <span>or</span>
+                                            <a asp-controller="account" asp-action="register">Register</a>
+                                        }
+                                        else
+                                        {
+                                            <span class="font-weight-bold">@User.Identity.Name</span>
+                                            <a class="mr-2" asp-action="logout" asp-controller="account">Log Out</a>
+                                        }
                                     </div>
                                     <div class="cart-block">
                                         <div class="cart-total">
@@ -267,6 +282,12 @@
                                 <li class="menu-item">
                                     <a href="#">Contact</a>
                                 </li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="menu-item">
+                                        <a asp-controller="dashboard" asp-action="index" asp-area="admin">Dashboard</a>
+                                    </li>
+                                }
                             </ul>
                         </nav>
                         <!-- mobile menu navigation end -->
@@ -360,6 +381,12 @@
                                 <li class="menu-item">
                                     <a href="#">Contact</a>
                                 </li>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="menu-item">
+                                        <a asp-controller="dashboard" asp-action="index" asp-area="admin">Dashboard</a>
+                                    </li>
+                                }
                             </ul>
                         </div>
                     </div>

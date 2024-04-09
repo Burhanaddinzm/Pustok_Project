@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pustok_Project.ViewModels
 {
@@ -11,7 +13,8 @@ namespace Pustok_Project.ViewModels
         public string Email { get; set; } = null!;
         [DataType(DataType.Password)]
         public string Password { get; set; } = null!;
-        [DataType(DataType.Password),Compare(nameof(Password))]
+        [DisplayName("Repeat Password")]
+        [DataType(DataType.Password), Compare(nameof(Password))]
         public string ConfirmPassword { get; set; } = null!;
     }
 }
