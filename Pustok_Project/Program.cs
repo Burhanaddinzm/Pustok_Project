@@ -25,7 +25,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 builder.Services.ConfigureApplicationCookie(x =>
 {
     x.LoginPath = "/Account/Login";
-    x.AccessDeniedPath = "/Error/Index";
+    x.AccessDeniedPath = "/Home/ErrorNotFound";
 });
 
 var app = builder.Build();

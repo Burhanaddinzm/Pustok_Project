@@ -91,12 +91,12 @@ namespace Pustok_Project.Areas.Admin.Controllers
             ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
             ViewBag.Brands = await _context.Brands.AsNoTracking().ToListAsync();
 
-            if (id == null || id == 0) return NotFound();
+            if (id == null || id == 0) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             Product? product = await _context.Products.AsNoTracking()
                 .Include(x => x.ProductImages).Include(x => x.Category).Include(x => x.Brand).FirstOrDefaultAsync(x => x.Id == id);
 
-            if (product == null) return NotFound();
+            if (product == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             ProductEditVM vm = product;
 
@@ -175,13 +175,13 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || id == 0) return NotFound();
+            if (id == null || id == 0) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             Product? product = await _context.Products
                 .Include(x => x.ProductImages).Include(x => x.Brand).Include(x => x.Category)
                 .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (product == null) return NotFound();
+            if (product == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             return View(product);
         }
@@ -204,13 +204,13 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
         public async Task<IActionResult> Detail(int? id)
         {
-            if (id == null || id == 0) return NotFound();
+            if (id == null || id == 0) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             Product? product = await _context.Products
                 .Include(x => x.Brand).Include(x => x.Category).Include(x => x.ProductImages)
                 .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (product == null) return NotFound();
+            if (product == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             return View(product);
         }
@@ -219,7 +219,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
         {
             List<ProductImage> productImages = await _context.ProductImages.Where(x => x.ProductId == id).AsNoTracking().ToListAsync();
 
-            if (productImages == null) return NotFound();
+            if (productImages == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             return PartialView("_ProductImagePartial", productImages);
         }
@@ -228,7 +228,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
         {
             ProductImage? productImage = await _context.ProductImages.FindAsync(id);
 
-            if (productImage == null) return NotFound();
+            if (productImage == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             productImage.IsDeleted = true;
             _context.ProductImages.Update(productImage);

@@ -71,7 +71,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
         {
             Brand? brand = await _context.Brands.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (brand == null) return NotFound();
+            if (brand == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             return View(brand);
         }
@@ -82,7 +82,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             Brand? existingBrand = await _context.Brands.FindAsync(brand.Id);
 
-            if (existingBrand == null) return NotFound();
+            if (existingBrand == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             if (!brand.Image.CheckFileType("image"))
             {
@@ -116,11 +116,11 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || id == 0) return NotFound();
+            if (id == null || id == 0) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             Brand? brand = await _context.Brands.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (brand == null) return NotFound();
+            if (brand == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             return View(brand);
         }

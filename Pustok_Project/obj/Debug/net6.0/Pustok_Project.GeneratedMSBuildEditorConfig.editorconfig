@@ -74,6 +74,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Areas/Admin/Views/Shared/404.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXDQwNC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Areas/Admin/Views/Shared/_BrandPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9CcmFuZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -120,6 +124,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/Category/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/SliderDiscountedProduct/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyRGlzY291bnRlZFByb2R1Y3RcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/SliderLatestProduct/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyTGF0ZXN0UHJvZHVjdFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/SliderNondiscountedProduct/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyTm9uZGlzY291bnRlZFByb2R1Y3RcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/_Layout.cshtml]

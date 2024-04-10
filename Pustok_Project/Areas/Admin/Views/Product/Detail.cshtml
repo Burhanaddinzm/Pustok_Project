@@ -9,6 +9,10 @@
     <a class="btn btn-danger mt-2" asp-route-id="@Model.Id" asp-controller="Product" asp-action="Delete">Delete</a>
 </div>
 <div class="mb-3">
+    <h3 class="text-primary">Created At/Updated At</h3>
+    <span style="color:blueviolet">@Model.CreatedAt</span> / <span style="color:hotpink">@Model.UpdatedAt</span>
+</div>
+<div class="mb-3">
     <h3 class="text-primary">Name</h3>
     <p>@Model.Name</p>
 </div>

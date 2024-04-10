@@ -59,7 +59,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
             Category? category = await _context.Categories.Include(x => x.Parent)
                            .AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (category == null) return NotFound();
+            if (category == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             return View(category);
         }
@@ -72,7 +72,7 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             Category? existingCategory = await _context.Categories.FindAsync(category.Id);
 
-            if (existingCategory == null) return NotFound();
+            if (existingCategory == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             if (await _context.Categories.Where(x => x.Id != category.Id).AnyAsync(x => x.Name == category.Name))
             {
@@ -93,11 +93,11 @@ namespace Pustok_Project.Areas.Admin.Controllers
         {
             ViewBag.Categories = await _context.Categories.AsNoTracking().ToListAsync();
 
-            if (id == null || id == 0) return NotFound();
+            if (id == null || id == 0) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             Category? category = await _context.Categories.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
 
-            if (category == null) return NotFound();
+            if (category == null) return RedirectToAction("ErrorNotFound", "Dashboard", new { Area = "Admin" });
 
             return View(category);
         }

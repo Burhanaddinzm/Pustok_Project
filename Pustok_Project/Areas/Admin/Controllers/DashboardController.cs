@@ -28,5 +28,10 @@ namespace Pustok_Project.Areas.Admin.Controllers
 
             return View(vm);
         }
+
+        public IActionResult ErrorNotFound()
+        {
+            return View("404");
+        }
     }
 }
