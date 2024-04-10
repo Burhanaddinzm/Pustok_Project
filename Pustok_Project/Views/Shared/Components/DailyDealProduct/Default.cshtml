@@ -1,0 +1,49 @@
+﻿@model List<Product>
+
+@if (Model == null) return;
+
+@foreach (var product in Model)
+{
+    <div class="single-slide">
+        <div class="product-card">
+            <div class="product-header">
+                <h3>
+                    <a href="#">@product.Name</a>
+                </h3>
+            </div>
+            <div class="product-card--body">
+                <div class="card-image">
+                    <img src="~/client/assets/image/productss/@product.ProductImages!.FirstOrDefault(x=> x.IsMain)!.Url" alt="">
+                    <div class="hover-contents">
+                        <a href="#" class="hover-image">
+                            <img src="~/client/assets/image/productss/@product.ProductImages!.FirstOrDefault(x=> x.IsHover)!.Url" alt="">
+                        </a>
+                        <div class="hover-btns">
+                            <a href="#" class="single-btn">
+                                <i class="fas fa-shopping-basket"></i>
+                            </a>
+                            <a href="#" class="single-btn">
+                                <i class="fas fa-heart"></i>
+                            </a>
+                            <a href="#" class="single-btn">
+                                <i class="fas fa-random"></i>
+                            </a>
+                            <a href="#" data-toggle="modal" data-target="#quickModal"
+                               class="single-btn">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="price-block">
+                    <span class="price">£@product.DiscountPrice</span>
+                    <del class="price-old">£@product.Price</del>
+                    <span class="price-discount">@(Math.Round((decimal)((product.Price - product.DiscountPrice) / product.Price) * 100))%</span>
+                </div>
+                <div class="count-down-block">
+                    <div class="product-countdown" data-countdown="@(DateTime.UtcNow.AddHours(4).AddDays(1))"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

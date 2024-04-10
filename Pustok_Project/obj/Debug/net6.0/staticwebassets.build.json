@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7QFrqDQ7BRZFN7HUHu9PUkmSL0LdFifzkbnBK5GL/8g=",
+  "Hash": "hFzVGFRXBqkFSAWCpG/myomsF+t7KEXv6ac+0beajjA=",
   "Source": "Pustok_Project",
   "BasePath": "_content/Pustok_Project",
   "Mode": "Default",
@@ -37257,6 +37257,25 @@
       "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\0497111d-b456-4227-837e-89aae8407019_product-2-1.jpg"
     },
     {
+      "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\10613153-0ba6-4016-b86b-c564c69a0fd0_IMG-20230601-WA0007.jpg",
+      "SourceId": "Pustok_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\",
+      "BasePath": "_content/Pustok_Project",
+      "RelativePath": "client/assets/image/productss/10613153-0ba6-4016-b86b-c564c69a0fd0_IMG-20230601-WA0007.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\10613153-0ba6-4016-b86b-c564c69a0fd0_IMG-20230601-WA0007.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\115a2639-988a-41d2-bced-ff77abb047e0_product-2-2.jpg",
       "SourceId": "Pustok_Project",
       "SourceType": "Discovered",
@@ -37863,6 +37882,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\d9ffa097-77c7-4a48-b468-31204198db92_product-2-2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\e3e2fea8-1a04-43b3-b154-65a20bb6eb25_1683786237647.jpg",
+      "SourceId": "Pustok_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\",
+      "BasePath": "_content/Pustok_Project",
+      "RelativePath": "client/assets/image/productss/e3e2fea8-1a04-43b3-b154-65a20bb6eb25_1683786237647.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\client\\assets\\image\\productss\\e3e2fea8-1a04-43b3-b154-65a20bb6eb25_1683786237647.jpg"
     },
     {
       "Identity": "C:\\Users\\Burhan\\source\\repos\\Pustok_Project\\Pustok_Project\\wwwroot\\client\\assets\\image\\productss\\ec225693-6c1f-4eeb-9217-b0b90df32552_12312312.PNG",

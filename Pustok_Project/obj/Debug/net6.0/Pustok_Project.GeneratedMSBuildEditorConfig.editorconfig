@@ -122,8 +122,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXDQwNC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/Brands/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQnJhbmRzXERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/CategoryProduct/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlQcm9kdWN0XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/Category/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2F0ZWdvcnlcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/DailyDealProduct/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcRGFpbHlEZWFsUHJvZHVjdFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/SliderDiscountedProduct/Default.cshtml]
@@ -136,6 +148,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/SliderNondiscountedProduct/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcU2xpZGVyTm9uZGlzY291bnRlZFByb2R1Y3RcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/Components/TypeProduct/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVHlwZVByb2R1Y3RcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Burhan/source/repos/Pustok_Project/Pustok_Project/Views/Shared/_Layout.cshtml]

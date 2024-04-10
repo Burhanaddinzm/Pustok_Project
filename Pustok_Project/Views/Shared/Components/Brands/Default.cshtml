@@ -1,0 +1,10 @@
+﻿@model List<Brand>
+
+@if (Model == null) return;
+
+@foreach (var brand in Model)
+{
+    <div class="single-slide">
+        <img style="padding-right:20px; width:150px; height:100px; object-fit:cover;" src="~/client/assets/image/brands/@brand.ImageUrl" alt="">
+    </div>
+}

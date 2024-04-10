@@ -394,30 +394,8 @@
                 {"breakpoint":480, "settings": {"slidesToShow": 2} },
                 {"breakpoint":320, "settings": {"slidesToShow": 1} }
             ]'>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-1.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-2.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-3.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-4.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-5.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-6.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-1.jpg" alt="">
-                </div>
-                <div class="single-slide">
-                    <img src="~/client/assets/image/others/brand-2.jpg" alt="">
-                </div>
+                @* Brands component 8pcs *@
+                @await Component.InvokeAsync("Brands")
             </div>
         </div>
     </section>
@@ -520,6 +498,7 @@
         </div>
     </footer>
     <!-- Use Minified Plugins Version For Fast Page Load -->
+    @await RenderSectionAsync("Scripts", false)
     <script src="~/client/assets/js/plugins.js"></script>
     <script src="~/client/assets/js/ajax-mail.js"></script>
     <script src="~/client/assets/js/custom.js"></script>
