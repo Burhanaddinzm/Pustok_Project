@@ -31,21 +31,12 @@
               "swipe": false,
               "asNavFor": ".product-slider-nav"
               }'>
-                    <div class="single-slide">
-                        <img src="image/products/product-details-1.jpg" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="image/products/product-details-2.jpg" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="image/products/product-details-3.jpg" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="image/products/product-details-4.jpg" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="image/products/product-details-5.jpg" alt="">
-                    </div>
+                    @foreach (var image in Model.ProductImages!)
+                    {
+                        <div class="single-slide">
+                            <img src="~/client/assets/image/productss/@image.Url" alt="">
+                        </div>
+                    }
                 </div>
                 <!-- Product Details Slider Nav -->
                 <div class="mt--30 product-slider-nav sb-slick-slider arrow-type-two" data-slick-setting='{
@@ -59,21 +50,12 @@
               "asNavFor": ".product-details-slider",
               "focusOnSelect": true
               }'>
-                    <div class="single-slide">
-                        <img src="~/client//assets/image/productss/" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/client//assets/image/productss/" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/client//assets/image/productss/" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/client//assets/image/productss/" alt="">
-                    </div>
-                    <div class="single-slide">
-                        <img src="~/client//assets/image/productss/" alt="">
-                    </div>
+                    @foreach (var image in Model.ProductImages!)
+                    {
+                        <div class="single-slide">
+                            <img src="~/client/assets/image/productss/@image.Url" alt="">
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-lg-7">
