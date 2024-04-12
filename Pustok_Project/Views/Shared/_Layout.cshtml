@@ -92,10 +92,10 @@
 
                         @* SEARCH *@
                         <div class="col-lg-5">
-                            <div class="header-search-block">
-                                <input type="text" placeholder="Search entire store here">
-                                <button>Search</button>
-                            </div>
+                            <form method="post" action="" class="header-search-block header-search">
+                                <input onchange="searchFunc()" type="text" placeholder="Search entire store here">
+                                <button type="submit">Search</button>
+                            </form>
                         </div>
                         @* ACCOUNT *@
                         <div class="col-lg-4">
@@ -481,6 +481,13 @@
     </footer>
     <!-- Use Minified Plugins Version For Fast Page Load -->
     @await RenderSectionAsync("Scripts", false)
+    <script>
+        const searchFunc = () => {
+            const searchEl = document.querySelector(".header-search")
+            const searchInput = document.querySelector(".header-search input")
+            searchEl.action = `https://localhost:7222/product/index?searchedName=${searchInput.value}`
+        }
+    </script>
     <script src="~/client/assets/js/plugins.js"></script>
     <script src="~/client/assets/js/ajax-mail.js"></script>
     <script src="~/client/assets/js/custom.js"></script>

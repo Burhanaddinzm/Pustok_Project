@@ -20,7 +20,19 @@
 <partial name="_ProductPartial" model="@Model" view-data='ViewData' />
 
 @section Scripts {
-    @if (ViewData["CategoryId"] != null)
+    @if (ViewData["CategoryId"] != null && ViewData["SearchedName"] != null)
+    {
+        <script>
+            function navigateToUrl(selectElement) {
+                var selectedValue = selectElement.value;
+                var categoryId = "@ViewData["CategoryId"]";
+                var searchedName = "@ViewData["SearchedName"]";
+                var url = `/product/index?categoryId=${categoryId}&searchedName=${searchedName}&pageSize=${selectedValue}`;
+                window.location.href = url;
+            }
+        </script>
+    }
+    @if (ViewData["CategoryId"] != null && ViewData["SearchedName"] == null)
     {
         <script>
             function navigateToUrl(selectElement) {
@@ -31,7 +43,18 @@
             }
         </script>
     }
-    @if (ViewData["CategoryId"] == null)
+    @if (ViewData["CategoryId"] == null && ViewData["SearchedName"] != null)
+    {
+        <script>
+            function navigateToUrl(selectElement) {
+                var selectedValue = selectElement.value;
+                var searchedName = "@ViewData["SearchedName"]";
+                var url = `/product/index?searchedName=${searchedName}&pageSize=${selectedValue}`;
+                window.location.href = url;
+            }
+        </script>
+    }
+    @if (ViewData["CategoryId"] == null && ViewData["SearchedName"] == null)
     {
         <script>
             function navigateToUrl(selectElement) {

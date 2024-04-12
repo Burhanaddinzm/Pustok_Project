@@ -8,14 +8,14 @@
         <div class="product-card">
             <div class="product-header">
                 <h3>
-                    <a href="#">@product.Name</a>
+                    <a asp-controller="product" asp-action="detail" asp-route-id="@product.Id">@product.Name</a>
                 </h3>
             </div>
             <div class="product-card--body">
                 <div class="card-image">
                     <img src="~/client/assets/image/productss/@product.ProductImages!.FirstOrDefault(x=> x.IsMain)!.Url" alt="">
                     <div class="hover-contents">
-                        <a href="#" class="hover-image">
+                        <a asp-controller="product" asp-action="detail" asp-route-id="@product.Id" class="hover-image">
                             <img src="~/client/assets/image/productss/@product.ProductImages!.FirstOrDefault(x=> x.IsHover)!.Url" alt="">
                         </a>
                         <div class="hover-btns">
