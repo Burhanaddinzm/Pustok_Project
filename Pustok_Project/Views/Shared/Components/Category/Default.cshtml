@@ -6,13 +6,13 @@
 {
     bool hasChildren = Model.Any(s => s.ParentId == category.Id);
     <li class="cat-item @(hasChildren ? "has-children" : "")">
-        <a href="#">@category.Name</a>
+        <a asp-controller="product" asp-action="index" asp-route-categoryId="@category.Id">@category.Name</a>
         @if (hasChildren)
         {
             <ul class="sub-menu">
                 @foreach (var subcategory in Model.Where(s => s.ParentId == category.Id))
                 {
-                    <li><a href="#">@subcategory.Name</a></li>
+                    <li><a asp-controller="product" asp-action="index" asp-route-categoryId="@subcategory.Id">@subcategory.Name</a></li>
                 }
             </ul>
         }

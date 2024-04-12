@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Shop";
 }
+@model PaginateVM
+
 <section class="breadcrumb-section">
     <h2 class="sr-only">Site Breadcrumb</h2>
     <div class="container">
@@ -15,4 +17,28 @@
     </div>
 </section>
 
-@await Component.InvokeAsync("Product")
+<partial name="_ProductPartial" model="@Model" view-data='ViewData' />
+
+@section Scripts {
+    @if (ViewData["CategoryId"] != null)
+    {
+        <script>
+            function navigateToUrl(selectElement) {
+                var selectedValue = selectElement.value;
+                var categoryId = "@ViewData["CategoryId"]";
+                var url = `/product/index?categoryId=${categoryId}&pageSize=${selectedValue}`;
+                window.location.href = url;
+            }
+        </script>
+    }
+    @if (ViewData["CategoryId"] == null)
+    {
+        <script>
+            function navigateToUrl(selectElement) {
+                var selectedValue = selectElement.value;
+                var url = `/product/index?pageSize=${selectedValue}`;
+                window.location.href = url;
+            }
+        </script>
+    }
+}

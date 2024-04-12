@@ -2,35 +2,93 @@
 using Microsoft.EntityFrameworkCore;
 using Pustok_Project.Data.Contexts;
 using Pustok_Project.Models;
+using Pustok_Project.ViewModels;
 
 namespace Pustok_Project.Controllers
 {
-	public class ProductController : Controller
-	{
-		readonly AppDbContext _context;
+    public class ProductController : Controller
+    {
+        readonly AppDbContext _context;
 
-		public ProductController(AppDbContext context)
-		{
-			_context = context;
-		}
+        public ProductController(AppDbContext context)
+        {
+            _context = context;
+        }
 
-		public IActionResult Index()
-		{
+        public async Task<IActionResult> Index(int? categoryId, int page = 1, int pageSize = 12)
+        {
+            ViewData["CategoryId"] = categoryId;
+            ViewData["PageSize"] = pageSize;
 
-			return View();
-		}
+            var query = _context.Products
+                        .Include(x => x.Category)
+                        .Include(x => x.ProductImages);
 
-		public async Task<IActionResult> Detail(int? id)
-		{
-			var product = await _context.Products
-								.Include(x => x.Category)
-								.Include(x => x.Brand)
-								.Include(x => x.ProductImages)
-								.AsNoTracking()
-								.FirstOrDefaultAsync(x => x.Id == id);
+            int pageCount = 0;
 
-			if (product == null) return RedirectToAction("ErrorNotFound", "Home");
-			return View(product);
-		}
-	}
+            List<Product>? products;
+
+            PaginateVM paginateVM = new PaginateVM
+            {
+                CurrentPage = page,
+            };
+
+            if (categoryId == null)
+            {
+                products = await query
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .OrderByDescending(x => x.CreatedAt)
+                    .AsNoTracking()
+                    .ToListAsync();
+
+                pageCount = GetPageCount(pageSize);
+                paginateVM.TotalPageCount = pageCount;
+
+                paginateVM.Products = products;
+            }
+            else
+            {
+                products = await query
+                    .Skip((page - 1) * pageSize)
+                    .Take(pageSize)
+                    .Where(x => x.CategoryId == categoryId)
+                    .OrderByDescending(x => x.CreatedAt)
+                    .AsNoTracking()
+                    .ToListAsync();
+
+                pageCount = GetPageCount(pageSize, categoryId);
+                paginateVM.TotalPageCount = pageCount;
+
+                paginateVM.Products = products;
+            }
+
+            return View(paginateVM);
+        }
+
+        public async Task<IActionResult> Detail(int? id)
+        {
+            var product = await _context.Products
+                                .Include(x => x.Category)
+                                .Include(x => x.Brand)
+                                .Include(x => x.ProductImages)
+                                .AsNoTracking()
+                                .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (product == null) return RedirectToAction("ErrorNotFound", "Home");
+            return View(product);
+        }
+
+        public int GetPageCount(int pageSize, int? categoryId = 0)
+        {
+            int productCount = 0;
+
+            if (categoryId != 0)
+                productCount = _context.Products.Where(x => x.CategoryId == categoryId).Count();
+            else
+                productCount = _context.Products.Count();
+
+            return (int)Math.Ceiling((decimal)productCount / pageSize);
+        }
+    }
 }
