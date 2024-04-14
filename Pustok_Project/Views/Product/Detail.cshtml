@@ -105,7 +105,7 @@
                             <input type="number" class="form-control text-center" value="1">
                         </div>
                         <div class="add-cart-btn">
-                            <a href="#" class="btn btn-outlined--primary">
+                            <a asp-controller="cart" asp-action="AddToCart" asp-route-id="@Model.Id" class="btn btn-outlined--primary">
                                 <span class="plus-icon">+</span>Add to
                                 Cart
                             </a>
